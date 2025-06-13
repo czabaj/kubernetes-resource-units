@@ -1,6 +1,6 @@
 {
   "name": "kubernetes-resource-units",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Utility functions to parse or format Kubernetes resource units.",
   "keywords": [
     "kubernetes",
