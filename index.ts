@@ -171,6 +171,9 @@ export const scaleBaseUnitCpu = (
   let multiplier: number | bigint = 1;
   if (unit) {
     multiplier = isNumBig ? BigInt(unitMultiplier[unit]) : unitMultiplier[unit];
+  } else if (Number(baseUnitNumber) === 0) {
+    // Special case for 0, we return 0 with no unit
+    return { number: 0, unit: undefined };
   } else {
     let i = baseUnitNumber < 1 ? 3 : cpuUnits.length;
     while (i--) {

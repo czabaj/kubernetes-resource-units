@@ -45,6 +45,7 @@ test.each([
   [2_000_000, `2M`],
   [BigInt(10), `10`],
   [BigInt(10) ** BigInt(17), `100P`],
+  [0, `0`], // edge case, 0 should return 0
 ] as [number | bigint, string][])(`.formatCpu(%s)`, (n, expected) => {
   expect(formatBaseUnitCpu(n)).toBe(expected);
 });
@@ -53,6 +54,7 @@ test.each([
   [20, `20`],
   [1024, `1Ki`],
   [202782720.131072, `193.388672Mi`],
+  [0, `0`], // edge case, 0 should return 0
 ] as [number | bigint, string][])(`.formatMemory(%s)`, (n, expected) => {
   expect(formatBaseUnitMemory(n)).toBe(expected);
 });
