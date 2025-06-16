@@ -138,6 +138,7 @@ export const formatParsedResource = (
 ) => {
   const formattedNumber = new Intl.NumberFormat(locale, {
     maximumFractionDigits: 100, // default for NumberFormat is 3, but we want avoid default rounding
+    useGrouping: false, // default for NumberFormat is "auto", but we want to avoid grouping
     ...options,
   }).format(parsedResource.number);
   return `${formattedNumber}${parsedResource.unit ?? ``}`;
